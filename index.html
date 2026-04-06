@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noir & Blanc™ | Refined In Monochrome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; overflow-x: hidden; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .letter-spacing-wide { letter-spacing: 0.2em; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Floating Buttons Style */
+        .social-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+        .float-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        .float-btn:hover {
+            background: white;
+            color: black;
+            transform: translateY(-5px);
+        }
+
+        /* Modal Overlay System */
+        #productModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 10000;
+            overflow-y: auto;
+            opacity: 0; transition: opacity 0.5s ease;
+        }
+        #productModal.active { display: block; opacity: 1; }
+        .close-modal { cursor: pointer; position: fixed; top: 30px; right: 40px; z-index: 10001; font-size: 32px; opacity: 0.5; transition: 0.3s; }
+        .close-modal:hover { opacity: 1; transform: rotate(90deg); }
+
+        /* --- UPDATED PARTNER LOGO STYLE --- */
+        .partner-logo-img { 
+            /* Efek monochrome dihilangkan agar logo berwarna sesuai request sebelumnya */
+            opacity: 0.9; /* Sedikit redup agar menyatu */
+            transition: all 0.3s ease; 
+            /* UKURAN LOGO DIPERBESAR (dari max 40px ke max 80px) */
+            max-height: 80px; 
+            width: auto;
+        }
+        .partner-logo-img:hover { 
+            opacity: 1; 
+            transform: scale(1.05); /* Sedikit pop-up saat hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="social-float">
+        <a href="https://www.instagram.com/noirblanc.supply?igsh=OHMxemVlZ3RndTdp" target="_blank" class="float-btn" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/6281291490156" target="_blank" class="float-btn" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <nav class="fixed w-full z-50 flex justify-between items-center px-8 py-6 mix-blend-difference">
+        <div class="text-xl font-bold letter-spacing-wide">NOIR & BLANC™</div>
+        <div class="space-x-8 text-xs uppercase tracking-widest hidden md:block">
+            <a href="#about" class="hover:opacity-50 transition">The Essence</a>
+            <a href="#philosophy" class="hover:opacity-50 transition">Philosophy</a>
+            <a href="#collection" class="hover:opacity-50 transition">Collection</a>
+            <a href="#collab" class="hover:opacity-50 transition">Collaboration</a>
+        </div>
+    </nav>
+
+    <section class="h-screen flex flex-col items-center justify-center text-center px-4">
+        <img src="NB.jpeg" alt="Noir & Blanc Emblem" class="w-24 mb-8 opacity-90">
+        <h1 class="serif italic text-4xl md:text-6xl mb-4">Stay Simple, Stand Out.</h1>
+        <p class="uppercase tracking-[0.5em] text-[10px] opacity-60">#RefinedInMonochrome</p>
+    </section>
+
+    <section id="about" class="py-24 bg-white text-black text-center px-8 reveal">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-xs tracking-widest opacity-50 uppercase mb-6">The Essence of Our Brand</h3>
+            <h2 class="serif text-3xl md:text-4xl mb-8 italic">Lebih dari sekadar Kaos Hitam & Putih.</h2>
+            <p class="leading-loose text-sm md:text-base opacity-80 mb-6">
+                Noir & Blanc™ lahir dari apresiasi terhadap kontras yang sempurna. Kami berfokus sepenuhnya pada kreasi <strong>Essential T-Shirts</strong> yang hanya tersedia dalam spektrum Hitam dan Putih. 
+            </p>
+            <p class="leading-loose text-sm md:text-base opacity-80">
+                Setiap helai kain yang kami pilih adalah janji kenyamanan, dan setiap <strong>logo simbol</strong> yang tersemat adalah identitas unik yang menceritakan filosofi mendalam. Kami tidak mengejar tren, kami menciptakan standar baru dalam kesederhanaan yang berkelas.
+            </p>
+        </div>
+    </section>
+
+    <section id="philosophy" class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+        <div class="bg-[#0a0a0a] flex items-center justify-center p-12 md:p-24 reveal">
+            <div class="max-w-md">
+                <span class="text-xs tracking-widest opacity-50 uppercase">The Origin</span>
+                <h2 class="serif text-3xl mt-4 mb-6 italic">The Power of Noir.</h2>
+                <p class="leading-relaxed opacity-80 text-sm">Hitam bukan sekadar warna, melainkan pernyataan tentang kedalaman dan otoritas. Di Noir & Blanc, hitam adalah kanvas bagi mereka yang berani tampil tanpa harus berteriak.</p>
+            </div>
+        </div>
+        <div class="bg-[#f9f9f9] text-black flex items-center justify-center p-12 md:p-24 reveal">
+            <div class="max-w-md">
+                <span class="text-xs tracking-widest opacity-50 uppercase">The Clarity</span>
+                <h2 class="serif text-3xl mt-4 mb-6 italic">The Purity of Blanc.</h2>
+                <p class="leading-relaxed opacity-80 text-sm">Putih melambangkan kejujuran dan esensi. Minimalisme dalam bentuk terbaiknya, memberikan ruang bagi karakter asli kamu untuk bersinar di atas segalanya.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="collection" class="py-32 px-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2 reveal">
+                <img src="AB.jpeg" alt="Model Preview" class="w-full h-auto grayscale shadow-2xl">
+            </div>
+            <div class="w-full md:w-1/2 reveal">
+                <h3 class="text-xs tracking-widest opacity-50 uppercase mb-4">First Theme</h3>
+                <h2 class="serif text-5xl mb-8 italic">As Above, So Below.</h2>
+                <p class="text-lg leading-relaxed opacity-70 mb-8 italic">"Yang di atas setara dengan yang di bawah."</p>
+                <p class="leading-relaxed opacity-80 mb-10">Simbol ini merepresentasikan keseimbangan hermetik. Geometri sakral yang kami sematkan bukan sekadar hiasan, melainkan pengingat tentang harmoni antara pikiran dan aksi.</p>
+                <button onclick="openModal()" class="border border-white px-10 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition duration-500">
+                    Explore Details
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div id="productModal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="max-w-6xl mx-auto py-20 px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-6">
+                    <img src="AB.jpeg" alt="Detail Baju" class="w-full grayscale border border-white/10 shadow-2xl">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="ABF.jpeg" class="w-full grayscale opacity-70 border border-white/5" alt="Detail Logo">
+                        <div class="grid grid-cols-1 gap-4">
+                             <img src="ABB.jpeg" class="w-full grayscale opacity-70 border border-white/5" alt="Detail Logo">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:sticky md:top-20">
+                    <h2 class="serif text-5xl mb-2 italic">As Above, So Below</h2>
+                    <p class="text-zinc-500 tracking-[0.4em] uppercase text-[10px] mb-12">Signature Series / 001</p>
+                    
+                    <div class="space-y-10 mb-16">
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest mb-4 opacity-100">The Meaning</h4>
+                            <p class="text-sm leading-relaxed opacity-60 font-light">
+                                Terinspirasi dari prinsip kuno tentang korespondensi. Simbol ini mengingatkan kita bahwa dunia luar adalah cerminan dari dunia dalam. Geometri vertikal yang presisi melambangkan koneksi antara ambisi dan realitas.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest mb-4 opacity-100">Product Specification</h4>
+                            <ul class="text-sm opacity-60 font-light space-y-2">
+                                <li>• Premium Cotton Blend Fabric, lebih adem, nyaman, dan tahan lama</li>
+                                <li>• Reguler Fit Silhouette</li>
+                                <li>• High-Density Screen Printing (Monochrome)</li>
+                                <li>• Noir & Blanc™ Signature Woven Label</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-12">
+                        <div class="flex justify-between items-center mb-8">
+                            <span class="text-xs tracking-widest opacity-50 uppercase">Color: Black</span>
+                            <span class="serif text-2xl italic italic italic">Limited Stock</span>
+                        </div>
+                        <a href="https://wa.me/6281291490156?text=Halo%20Noir%20%26%20Blanc,%20saya%20ingin%20memesan%20produk%20As%20Above%20So%20Below" 
+                           target="_blank"
+                           class="block w-full bg-white text-black py-5 text-center text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-zinc-200 transition duration-300">
+                           Purchase via WhatsApp — Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-24 bg-[#000000] border-t border-white/5 reveal">
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h4 class="text-[10px] tracking-[0.5em] uppercase opacity-30">Trusted Partners</h4>
+                <div class="w-10 h-[1px] bg-white/20 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24">
+                <img src="NC.jpeg" alt="Partner Logo 1" class="partner-logo-img">
+                
+                <img src="PBM.jpeg" alt="Partner Logo 2" class="partner-logo-img">
+            </div>
+            
+            <p class="text-center mt-16 text-[9px] tracking-[0.3em] uppercase opacity-20 italic">
+                Verified Quality Standards for Corporate & Community
+            </p>
+        </div>
+    </section>
+
+    <section id="collab" class="bg-[#2a2a2a] py-32 px-8 text-center border-t border-white/5">
+        <div class="max-w-2xl mx-auto reveal">
+            <h2 class="serif text-4xl mb-6 italic">Collaboration & Custom Hub</h2>
+            <p class="opacity-60 text-sm leading-loose mb-12">Kami membuka ruang bagi visi kamu. Layanan sablon premium dan request desain eksklusif untuk mereka yang menghargai kualitas monokrom yang presisi.</p>
+            <a href="https://wa.me/6281291490156?text=Halo%20Noir%20%26%20Blanc,%20saya%20ingin%20bertanya%20mengenai%20kerjasama%20sablon/custom" class="inline-block border-b border-white pb-2 text-sm tracking-widest hover:opacity-50 transition">LET'S CREATE TOGETHER →</a>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/10 text-[10px] tracking-[0.3em] uppercase text-center opacity-40">
+        &copy; 2026 Noir & Blanc. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Modal Control Functions
+        function openModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Kunci scroll biar gak berantakan
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Balikin scroll
+        }
+
+        // Close modal if user clicks outside content (optional but nice)
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Simple Scroll Reveal Logic
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
